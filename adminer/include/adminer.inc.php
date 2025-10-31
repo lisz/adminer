@@ -184,7 +184,10 @@ class Adminer {
 	function fieldName(array $field, int $order = 0): string {
 		$type = $field["full_type"];
 		$comment = $field["comment"];
-		return '<span title="' . h($type . ($comment != "" ? ($type ? ": " : "") . $comment : '')) . '">' . h($field["field"]) . '</span>';
+		$commentDesc = '<span style="white-space:pre-line;">' . h($comment) . '</span>';
+
+		return '<span title="' . h($type . ($comment != "" ? ($type ? ": " : "") . $comment : '')) . '">'
+			. h($field["field"]) .($comment ? '<br />' . $commentDesc : '').'</span>';
 	}
 
 	/** Print links after select heading
