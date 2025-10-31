@@ -39,4 +39,13 @@ jobs:
       run: git submodule update --init
 
     - name: compile
-      run: php compile.php zh 
+      run: php compile.php zh
+
+    - name: Upload adminer-zh.php
+      uses: actions/upload-artifact@v4
+      with:
+        name: adminer-zh.php
+        path: adminer-zh.php
+      
+              
+      
