@@ -41,11 +41,14 @@ jobs:
     - name: compile
       run: php compile.php zh
 
+    - name: Set date (YYYY-MM-DD)
+      id: set_date
+      run:
+        # 生成格式为 2025-10-31 的日期。若希望没有破折号可改为 +%Y%m%d
+        echo "date=$(date +%Y-%m-%d)" >> $GITHUB_OUTPUT
+
     - name: Upload adminer-zh.php
       uses: actions/upload-artifact@v4
       with:
-        name: adminer-zh.php
+        name: adminer-${{ steps.set_date.outputs.date }}
         path: adminer-zh.php
-      
-              
-      
