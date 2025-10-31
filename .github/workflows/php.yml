@@ -35,5 +35,8 @@ jobs:
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
+    - name: submodule init
+      run: git submodule update --init
+
     - name: compile
       run: php compile.php zh 
