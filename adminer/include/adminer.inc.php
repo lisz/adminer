@@ -184,7 +184,8 @@ class Adminer {
 	function fieldName(array $field, int $order = 0): string {
 		$type = $field["full_type"];
 		$comment = $field["comment"];
-		$commentDesc = '<span style="white-space:pre-line;">' . h($comment) . '</span>';
+		// lis 修改：注释换行显示
+		$commentDesc = '<span style="white-space:pre-line;display:inline-block;max-height:128px;overflow:hidden">' . h($comment) . '</span>';
 
 		return '<span title="' . h($type . ($comment != "" ? ($type ? ": " : "") . $comment : '')) . '">'
 			. h($field["field"]) .($comment ? '<br />' . $commentDesc : '').'</span>';
